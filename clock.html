@@ -63,7 +63,7 @@ function startTime() {
     document.getElementById('text').innerHTML = theTime;
     document.getElementById('date').innerHTML = theDate;
     document.getElementById('hour').innerHTML = theHour;
-    var t = setTimeout(startTime, 400);  // smooth repeat
+    var t = setTimeout(startTime, 100);  // smooth repeat
 }
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
