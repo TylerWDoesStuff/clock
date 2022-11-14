@@ -48,6 +48,7 @@ function startTime() {
     var w = today.getDay();
     var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     m = checkTime(m);
+    s = checkTime(s);
     
     // Format for 12-hour clock instead of default 24-hour clock.
     // Remove these two lines for 24-hour clock.
@@ -68,10 +69,6 @@ function startTime() {
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
-}
-function checkTime(s) {
-    if (s < 10) {s = "0" + s};  // add zero in front of numbers < 10
-    return s;
 }
 function getSep(h) {
     var sep = 'AM';
