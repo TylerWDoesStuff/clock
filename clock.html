@@ -37,11 +37,13 @@ that it doesn't shut off when plugged in.
 -->
 <html>
 <head>
+    <title>Clock</title>
 <script>
 function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
+    var s = today.getSeconds();
     var d = today.getDate();
     var w = today.getDay();
     var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -53,7 +55,7 @@ function startTime() {
     if (h > 12) {h -= 12};  // use 12-hour clock
     if (h == 0) {h = 12};
     
-    var theTime = h + ":" + m
+    var theTime = h + ":" + m + ":" + s
     var theDate = day[w] + '&nbsp;' + d
     var theHour = sep
    
@@ -61,11 +63,15 @@ function startTime() {
     document.getElementById('text').innerHTML = theTime;
     document.getElementById('date').innerHTML = theDate;
     document.getElementById('hour').innerHTML = theHour;
-    var t = setTimeout(startTime, 1000);  // 1-sec repeat
+    var t = setTimeout(startTime, 400);  // smooth repeat
 }
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
+}
+function checkTime(s) {
+    if (s < 10) {s = "0" + s};  // add zero in front of numbers < 10
+    return s;
 }
 function getSep(h) {
     var sep = 'AM';
@@ -76,11 +82,10 @@ function getSep(h) {
 </head>
 
 <body onload="startTime()" style="background-color:black;">
-<!-- Deep red color is used. Adjust color to your taste: #rrggbb -->
 <div id="date" style="color:#ffffff; font-family:sans-serif;
 		  font-size:100px; text-align:right;
 		  padding-top:120px; padding-right:120px;"></div>
-<div id="text" style="color:#ffffff; font-family:sans-serif; 
+<div id="text" style="color:#ffffff; font-family:monospace; 
 		 font-size:256px; text-align:right;
 		  line-height:0.8; padding-right:120px;"></div>
 <div id="hour" style="color:#aaaaaa; font-family:sans-serif; 
