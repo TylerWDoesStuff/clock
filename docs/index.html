@@ -53,11 +53,14 @@ function startTime() {
     if (h > 12) {h -= 12};  // use 12-hour clock
     if (h == 0) {h = 12};
     
-    var theTime = h + sep + m
+    var theTime = h + ":" + m
     var theDate = day[w] + '&nbsp;' + d
+    var theHour = sep
+   
     
     document.getElementById('text').innerHTML = theTime;
     document.getElementById('date').innerHTML = theDate;
+    document.getElementById('hour').innerHTML = theHour;
     var t = setTimeout(startTime, 1000);  // 1-sec repeat
 }
 function checkTime(i) {
@@ -65,8 +68,8 @@ function checkTime(i) {
     return i;
 }
 function getSep(h) {
-    var sep = '.';
-    if (h >= 12) {sep = ':'};  // use ':' for pm values, '.' for am
+    var sep = 'AM';
+    if (h >= 12) {sep = 'PM'};  // use ':' for pm values, '.' for am
     return sep;
 }
 </script>
@@ -74,12 +77,14 @@ function getSep(h) {
 
 <body onload="startTime()" style="background-color:black;">
 <!-- Deep red color is used. Adjust color to your taste: #rrggbb -->
-<div id="date" style="color:#dd0000; font-family:sans-serif;
+<div id="date" style="color:#ffffff; font-family:sans-serif;
 		  font-size:100px; text-align:right;
 		  padding-top:120px; padding-right:120px;"></div>
-<div id="text" style="color:#dd0000; font-family:sans-serif; 
+<div id="text" style="color:#ffffff; font-family:sans-serif; 
 		 font-size:256px; text-align:right;
 		  line-height:0.8; padding-right:120px;"></div>
-
+<div id="hour" style="color:#aaaaaa; font-family:sans-serif; 
+font-size:100px; text-align:right;
+ line-height:0.8; padding-right:120px;"></div>
 </body>
 </html>
