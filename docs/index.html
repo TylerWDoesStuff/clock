@@ -11,13 +11,37 @@ function startTime() {
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
+	var sPrint;
     var d = today.getDate();
     var w = today.getDay();
     var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	h = checkTime(h);
     m = checkTime(m);
     // s = checkTime(s);
-
+	if (s < 7.5) {
+		sPrint = "⠈";
+	}
+	else if (s < 15) {
+		sPrint = "⠘";
+	}
+	else if (s < 22.5) {
+		sPrint = "⠸";
+	}
+	else if (s < 30) {
+		sPrint = "⢸";
+	}
+	else if (s < 37.5) {
+		sPrint = "⣸";
+	}
+	else if (s < 45) {
+		sPrint = "⣼";
+	}
+	else if (s < 52.5) {
+		sPrint = "⣾";
+	}
+	else {
+		sPrint = "⣿";
+	}
 
 	if (width == 884 || width == 1034) {h -= 8;}
     
@@ -25,7 +49,7 @@ function startTime() {
     if (h > 12) {h -= 12};  // use 12-hour clock
     if (h == 0) {h = 12};
     
-    var theTime = h + ":" + m + ":" + s
+    var theTime = h + ":" + m + " " + s
     var theDate = day[w] + '&nbsp;' + d
     var theHour = sep
    
