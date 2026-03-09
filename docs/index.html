@@ -15,6 +15,7 @@ function startTime() {
     var d = today.getDate();
     var w = today.getDay();
     var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	var curDay = day[w];
     m = checkTime(m);
     // s = checkTime(s);
 
@@ -27,18 +28,27 @@ function startTime() {
 	else if (s < 45) {sPrint = "⣼";}
 	else if (s < 52.5) {sPrint = "⣾";}
 	else {sPrint = "⣿";}
-    
+
+	if (h < 7) { // additional conversion for day of week
+		if (w == 0) {curDay = day[6];}
+		else {curDay = day[w - 1];}
+		d--;
+	};
+
+	if (width == 891 || width == 758) {h -= 7;}; // HARDCODED CONVERSION TO GMT -7 (PDT); WILL BE INACCURATE ON OTHER TIMEZONES
+
+	if (h < 0) {h += 12};
+	
     var sep = getSep(h);  // use sep to indicate am/pm.
     if (h > 12) {h -= 12};  // use 12-hour clock
     if (h == 0) {h = 12};
 
 	h = checkTime(h); // need to move it *after* the conversion
-	if (width == 891 || width == 758) {h -= 7;} // HARDCODED CONVERSION TO GMT -7 (PDT); WILL BE INACCURATE ON OTHER TIMEZONES
 
     
-    var theTime = h + ":" + m + "\n\n" + sPrint
-    var theDate = day[w] + '&nbsp;' + d
-    var theHour = sep
+    var theTime = h + ":" + m + "\n\n" + sPrint;
+    var theDate = curDay + '&nbsp;' + d;
+    var theHour = sep;
    
     
     document.getElementById('text').innerHTML = theTime;
