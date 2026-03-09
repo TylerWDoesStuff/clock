@@ -46,7 +46,7 @@ function startTime() {
 	h = checkTime(h); // need to move it *after* the conversion
 
     
-    var theTime = h + ":" + m + "\n\n." + sPrint;
+    var theTime = h + ":" + m + "\n" + sPrint;
     var theDate = curDay + '&nbsp;' + d;
     var theHour = sep;
    
@@ -75,7 +75,7 @@ function getSep(h) {
 		  padding-top:120px; padding-right:120px;"></div>
 <div id="text" style="color:#ffffff; font-family:sans-serif; 
 		 font-size:256px; text-align:right; 
-		  line-height:0.8; padding-right:120px;"></div>
+		  line-height:1; padding-right:120px;"></div>
 <div id="hour" style="color:#aaaaaa; font-family:sans-serif; 
 font-size:100px; text-align:left; 
  line-height:0.8;"></div>
