@@ -27,16 +27,16 @@ function startTime() {
 	else if (s < 45) {sPrint = "⣼";}
 	else if (s < 52.5) {sPrint = "⣾";}
 	else {sPrint = "⣿";}
-
-	if (width == 891) {h -= 7;} // HARDCODED CONVERSION TO GMT -7 (PDT); WILL BE INACCURATE ON OTHER TIMEZONES
     
     var sep = getSep(h);  // use sep to indicate am/pm.
     if (h > 12) {h -= 12};  // use 12-hour clock
     if (h == 0) {h = 12};
 
 	h = checkTime(h); // need to move it *after* the conversion
+	if (width == 891) {h -= 7;} // HARDCODED CONVERSION TO GMT -7 (PDT); WILL BE INACCURATE ON OTHER TIMEZONES
+
     
-    var theTime = h + ":" + m + "." + sPrint
+    var theTime = h + ":" + m + "\n" + sPrint
     var theDate = day[w] + '&nbsp;' + d
     var theHour = sep
    
