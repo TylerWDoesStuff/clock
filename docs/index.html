@@ -33,10 +33,10 @@ function startTime() {
     if (h == 0) {h = 12};
 
 	h = checkTime(h); // need to move it *after* the conversion
-	if (width == 891) {h -= 7;} // HARDCODED CONVERSION TO GMT -7 (PDT); WILL BE INACCURATE ON OTHER TIMEZONES
+	if (width == 891 || width == 758) {h -= 7;} // HARDCODED CONVERSION TO GMT -7 (PDT); WILL BE INACCURATE ON OTHER TIMEZONES
 
     
-    var theTime = h + ":" + m + "\n" + sPrint
+    var theTime = h + ":" + m + "\n\n" + sPrint
     var theDate = day[w] + '&nbsp;' + d
     var theHour = sep
    
